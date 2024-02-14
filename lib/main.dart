@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'branch1.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({Key ?key, required this.title}) : super(key: key);
 
   final String title;
   @override
@@ -51,7 +53,13 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
-            Text('this is second update')
+            Text('this is second update'),
+            Expanded(child: SizedBox(),),
+            ElevatedButton(onPressed: (){
+
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => BranchOne(),));
+            }, child: Text('Next Screen'))
+
           ],
         ),
       ),
